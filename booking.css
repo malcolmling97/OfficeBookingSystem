@@ -1,0 +1,194 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.title-slide {
+  text-align: center; /* Center the text */
+  padding: 20px; /* Add some padding for spacing */
+  background-color: #f0f0f0; /* Background color for the title */
+  width: 120%; /* Fill entire width */
+  min-height: 0vh;
+  margin: 0; /* Remove margin */
+}
+
+.rooms-container {
+  display: flex;
+  text-align: center; /* Center the text */
+  margin: 20px;
+}
+
+.rooms-container .button{
+  width: 320px;
+  height: 100px;
+  background: transparent;
+  border: 2px solid #f0f0f0;
+  outline: 2px;
+  cursor:pointer;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 10px 0 10px;
+}
+
+.rooms-container .button:hover{
+  background: #6c6cda;
+}
+
+h2 {
+  margin: 0 60px;
+}
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+  background: slategrey;
+}
+
+.container{
+  display: flex;
+
+}
+
+.wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  margin: 0 50px;
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendar{
+  padding: 20px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20 px;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;  
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: slategrey;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+.book-cancel{
+  display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin:50px;
+ 
+
+}
+
+
+.btn-booking-submit{
+  width: 150px;
+  height: 50px;
+    background: rgb(92, 92, 216);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor:pointer;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 50px 10px 50px;
+}
+
+/* Styles for hover state */
+.btn-booking-submit:hover {
+  background: #6c6cda; /* Change the background color on hover */
+}
+
+.btn-booking-cancel{
+  width: 150px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #f0f0f0;
+  outline: 2px;
+  border-radius: 40px;
+  cursor:pointer;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 50px 0 50px
+}
