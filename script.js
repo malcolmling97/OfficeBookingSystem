@@ -1,7 +1,13 @@
 const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".icons span");
+const roomsTag = document.querySelectorAll(".roombutton")
+const instructionstext = document.querySelector(".infotext")
 // getting new date, current year and month
+
+// need these 2 conditions in order to turn true in order to generate timigs
+let roomclicked = false;
+let dateclicked = false;
 
 
 
@@ -23,7 +29,7 @@ const renderCalendar = () => {
     for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
         // adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
-                     && currYear === new Date().getFullYear() ? "active" : "";
+                    //  && currYear === new Date().getFullYear() ? "active" : "";
         liTag += `<li class="${isToday}">${i}</li>`;
     }
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
@@ -33,6 +39,9 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
 }
 renderCalendar();
+
+
+
 
 let activeDay = document.querySelector("li.active");
 
@@ -58,12 +67,21 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
                     activeDay?.classList.remove("active")
                     day.classList.add("active")
                     activeDay = day
+                    dateclicked = true
+                    TimeslotGenerator();
+                    
 
                     if (day.classList.contains("inactive")) {
                         if (day.classList.contains("day")) {
                             nextBtn.click()
+                            dateclicked = false
+                            TimeslotGenerator();
+                            
                         } else {
                            prevBtn.click()
+                           dateclicked = false
+                           TimeslotGenerator();
+                          
                         }
                     }
                     
@@ -76,24 +94,134 @@ let prevBtn = document.querySelector("#prev")
 let nextBtn = document.querySelector("#next")
 
 
+//Prove it selected date
 daysTag.childNodes.forEach(day => { // getting day buttons
     day.addEventListener("click", () => { // adding click event on all day icons
             // Set current day as active 
             activeDay?.classList.remove("active")
             day.classList.add("active")
             activeDay = day
+            dateclicked = true
+            TimeslotGenerator();
 
-            console.log(day.classList)
+           
+
+            // ensures that if click on inactive days that are blurred out, they are sent ot the next or previous page depending on their location
             if (day.classList.contains("inactive")) {
                 if (day.classList.contains("day")) {
                     nextBtn.click()
+                    dateclicked = false
+                    TimeslotGenerator();
+                    
                 } else {
                     prevBtn.click()
+                    dateclicked = false
+                    TimeslotGenerator();
+                    
                 }
             }
             
     });
 });
+
+
+
+//Prove it selected room button
+roomsTag.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove 'clicked' class from all buttons
+      roomsTag.forEach(btn => {
+        btn.classList.remove('clicked');
+        
+      });
+  
+      // Add 'clicked' class to the clicked button
+      this.classList.add('clicked');
+      roomclicked = true
+      TimeslotGenerator();
+     
+    });
+  });
+
+
+/* Do an if else for the buttons displayed
+
+if day and button not active, input 1 (dateclicked)
+if day selected room not active, input 2
+if day room selected day not select, input 3
+if both selected, 
+check with database on which slots are already taken
+allow selection and hovering over taken slots.
+
+
+*/
+
+// const timeslots = [
+//     '08:00 - 09:00',
+//     '09:00 - 10:00',
+//     '10:00 - 11:00',
+//     '11:00 - 12:00',
+//     '12:00 - 13:00',
+//     '13:00 - 14:00',
+//     '14:00 - 15:00',
+//     '15:00 - 16:00',
+//     '16:00 - 17:00',
+//     '17:00 - 18:00'
+//   ]
+
+//   function createButtons() {
+//     const buttonContainer = document.createElement('div'); // Create a container for the buttons
+//     buttonContainer.classList.add('button-container'); // Add a class for styling
+  
+//     timeslots.forEach(slot => {
+//       const timeSlotButton = document.createElement('timeslotbutton'); // Create a button for each time slot
+//       timeSlotButton.textContent = slot; // Set button text with time slot
+//       timeSlotButton.classList.add('timeslot-button'); // Add a class for styling
+
+
+
+//       timeSlotButton.addEventListener('click', function() {
+//         // Handle click event for each time slot button
+//         console.log(`Selected time slot: ${slot}`);
+//         // Perform actions specific to the selected time slot
+//       });
+      
+//       buttonContainer.appendChild(timeSlotButton); // Append the button to the container
+//     });
+  
+//     // Append the container to your desired element
+//     const containerElement = document.getElementById('infotext'); // Get the container
+//     containerElement.appendChild(buttonContainer); // Append the button container to the element
+//   }
+//   createButtons();
+  
+
+
+// to check the conditions within a room
+function TimeslotGenerator() {
+    if (roomclicked && dateclicked) {
+        instructionstext.textContent = "GENERATE BOX";
+      // to implement BOX GENERATION AND CHECKER HERE TO WORK WITH BACK END
+      
+      }
+      
+    else if (dateclicked) {
+        // Only date is clicked
+        instructionstext.textContent = "Select a room"
+        // Perform actions when only date is clicked
+      } else if (roomclicked) {
+        // Only room is clicked
+        instructionstext.textContent = "Select a date"
+        // Perform actions when only room is clicked
+      } else {
+        // Neither room nor date is clicked
+        instructionstext.textContent = "Select a room and date"
+        // Perform actions when neither room nor date is clicked
+      }
+    
+    
+  }
+
 
 
 

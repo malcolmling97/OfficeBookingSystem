@@ -24,11 +24,12 @@
   margin: 20px;
 }
 
-.rooms-container .button{
+.rooms-container .roombutton{
   width: 320px;
   height: 100px;
   background: transparent;
   border: 2px solid #f0f0f0;
+  border-radius: 5px;
   outline: 2px;
   cursor:pointer;
   font-size: 16px;
@@ -37,9 +38,48 @@
   margin: 0 10px 0 10px;
 }
 
-.rooms-container .button:hover{
+.rooms-container .roombutton:hover{
   background: #6c6cda;
 }
+
+.roombutton.clicked {
+  background-color: rgb(92, 92, 216); /* Color when clicked */
+}
+
+.wrapper1{
+  display: flex;
+  width: 450px;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  margin: 0 50px;
+  align-items: center;
+  justify-content: center ;
+}
+
+.infotext{
+  display: flex;
+  width: 230px;
+  height: 70px;
+  background: transparent;
+  border: 2px solid #f0f0f098;
+  border-radius: 5px;
+  outline: 2px;
+  cursor:pointer;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 10px 0 10px;
+  align-items: center;
+  justify-content: center 
+
+}
+
+.infotext:hover{
+  cursor: default;
+
+}
+
 
 h2 {
   margin: 0 60px;
@@ -143,7 +183,7 @@ header .current-date{
   transform: translate(-50%, -50%);
 }
 .days li.active::before{
-  background: slategrey;
+  background: rgb(92, 92, 216);
 }
 .days li:not(.active):hover::before{
   background: #f2f2f2;
@@ -191,4 +231,38 @@ header .current-date{
   color: #ffffff;
   font-weight: 600;
   margin: 0 50px 0 50px
+}
+
+
+
+
+
+/* Style for the container holding the buttons */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap between buttons */
+  /* Add other container styles if needed */
+}
+
+/* Style for each time slot button */
+.timeslot-button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect */
+.timeslot-button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Active/Selected state */
+.timeslot-button.active {
+  background-color: #28a745; /* Change background color for selected slots */
 }
