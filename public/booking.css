@@ -1,14 +1,34 @@
 /* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* end modal */
 .title-slide {
   text-align: center; /* Center the text */
   padding: 20px; /* Add some padding for spacing */
@@ -24,21 +44,21 @@
   margin: 20px;
 }
 
-.rooms-container .roombutton{
+.rooms-container .roombutton {
   width: 320px;
   height: 100px;
   background: transparent;
   border: 2px solid #f0f0f0;
   border-radius: 5px;
   outline: 2px;
-  cursor:pointer;
+  cursor: pointer;
   font-size: 16px;
   color: #ffffff;
   font-weight: 600;
   margin: 0 10px 0 10px;
 }
 
-.rooms-container .roombutton:hover{
+.rooms-container .roombutton:hover {
   background: #6c6cda;
 }
 
@@ -46,18 +66,18 @@
   background-color: rgb(92, 92, 216); /* Color when clicked */
 }
 
-.wrapper1{
+.wrapper1 {
   display: flex;
   width: 450px;
   background: transparent;
   border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   margin: 0 50px;
   align-items: center;
-  justify-content: center ;
+  justify-content: center;
 }
 
-.infotext{
+.infotext {
   display: flex;
   width: 230px;
   height: 70px;
@@ -65,28 +85,24 @@
   border: 2px solid #f0f0f098;
   border-radius: 5px;
   outline: 2px;
-  cursor:pointer;
+  cursor: pointer;
   font-size: 16px;
   color: #ffffff;
   font-weight: 600;
   margin: 0 10px 0 10px;
   align-items: center;
-  justify-content: center 
-
+  justify-content: center;
 }
 
-.infotext:hover{
+.infotext:hover {
   cursor: default;
-
 }
-
 
 h2 {
   margin: 0 60px;
 }
 
-
-body{
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,28 +111,27 @@ body{
   background: slategrey;
 }
 
-.container{
+.container {
   display: flex;
-
 }
 
-.wrapper{
+.wrapper {
   width: 450px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   margin: 0 50px;
 }
-.wrapper header{
+.wrapper header {
   display: flex;
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
-header .icons{
+header .icons {
   display: flex;
 }
-header .icons span{
+header .icons span {
   height: 38px;
   width: 38px;
   margin: 0 1px;
@@ -128,50 +143,50 @@ header .icons span{
   user-select: none;
   border-radius: 50%;
 }
-.icons span:last-child{
+.icons span:last-child {
   margin-right: -10px;
 }
-header .icons span:hover{
+header .icons span:hover {
   background: #f2f2f2;
 }
-header .current-date{
+header .current-date {
   font-size: 1.45rem;
   font-weight: 500;
 }
-.calendar{
+.calendar {
   padding: 20px;
 }
-.calendar ul{
+.calendar ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
 }
-.calendar .days{
+.calendar .days {
   margin-bottom: 20 px;
 }
-.calendar li{
+.calendar li {
   color: #333;
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
-.calendar .weeks li{
+.calendar .weeks li {
   font-weight: 500;
   cursor: default;
 }
-.calendar .days li{
+.calendar .days li {
   z-index: 1;
   cursor: pointer;
   position: relative;
   margin-top: 30px;
 }
-.days li.inactive{
+.days li.inactive {
   color: #aaa;
 }
-.days li.active{
-  color: #fff;  
+.days li.active {
+  color: #fff;
 }
-.days li::before{
+.days li::before {
   position: absolute;
   content: "";
   left: 50%;
@@ -182,32 +197,29 @@ header .current-date{
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-.days li.active::before{
+.days li.active::before {
   background: rgb(92, 92, 216);
 }
-.days li:not(.active):hover::before{
+.days li:not(.active):hover::before {
   background: #f2f2f2;
 }
 
-.book-cancel{
+.book-cancel {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin:50px;
- 
-
+  margin: 50px;
 }
 
-
-.btn-booking-submit{
+.btn-booking-submit {
   width: 150px;
   height: 50px;
-    background: rgb(92, 92, 216);
+  background: rgb(92, 92, 216);
   border: none;
   outline: none;
   border-radius: 40px;
-  cursor:pointer;
+  cursor: pointer;
   font-size: 16px;
   color: #ffffff;
   font-weight: 600;
@@ -219,28 +231,25 @@ header .current-date{
   background: #6c6cda; /* Change the background color on hover */
 }
 
-.btn-booking-cancel{
+.btn-booking-cancel {
   width: 150px;
   height: 50px;
   background: transparent;
   border: 2px solid #f0f0f0;
   outline: 2px;
   border-radius: 40px;
-  cursor:pointer;
+  cursor: pointer;
   font-size: 16px;
   color: #ffffff;
   font-weight: 600;
-  margin: 0 50px 0 50px
+  margin: 0 50px 0 50px;
 }
-
-
-
-
 
 /* Style for the container holding the buttons */
 .button-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
+
   gap: 10px; /* Adjust the gap between buttons */
   /* Add other container styles if needed */
 }
@@ -248,10 +257,10 @@ header .current-date{
 /* Style for each time slot button */
 .timeslot-button {
   padding: 8px 16px;
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Button text color */
+  background-color: #ffffff; /* Button background color */
+  color: #000000; /* Button text color */
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease; /* Smooth transition for background color */

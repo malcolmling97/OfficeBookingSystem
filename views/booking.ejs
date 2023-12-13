@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/booking.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body>
+    <!-- Title -->
+
+    <div class="title-slide">
+      <h1>OfficeBooks</h1>
+    </div>
+
+    <div class="rooms-container">
+      <% for (let room of rooms) { %>
+      <button id="<%=room.id%>" type="button" class="roombutton">
+        <%= room.name %>
+      </button>
+      <% } %>
+    </div>
+
+    <div class="container">
+      <div id="confirmationModal" class="modal">
+        <p>Are you sure you want to confirm your booking?</p>
+        <div>
+          <p class="room-number"></p>
+          <p class="timeslot"></p>
+          <p class="booking-date"></p>
+        </div>
+        <button class="button" onclick="confirmBooking()">Yes, Confirm</button>
+        <button class="button" onclick="closeModal()">Cancel</button>
+      </div>
+      <div class="wrapper">
+        <header>
+          <p class="current-date"></p>
+          <div class="icons">
+            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+            <span id="next" class="material-symbols-rounded"
+              >chevron_right</span
+            >
+          </div>
+        </header>
+
+        <div class="calendar">
+          <ul class="weeks">
+            <% for (let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri',
+            'Sat']) { %>
+            <li><%= day %></li>
+            <% } %>
+          </ul>
+          <ul class="days"></ul>
+        </div>
+      </div>
+
+      <div class="wrapper1" id="slotContainer">
+        <div class="infotext">Select a room and date</div>
+      </div>
+    </div>
+
+    <div class="book-cancel">
+      <button id="submit" type="submit" class="btn-booking-submit">
+        Submit
+      </button>
+      <!-- <button type="submit" class="btn-booking-cancel">Cancel</button> -->
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
